@@ -1,6 +1,7 @@
 import {RegionState, Region, RegionMap} from '../reducers/region';
 import {RegionVisualProperties, RegionVisualPropertiesMap} from '../reducers/regionVisualProperties'
 import {matchingRegionsSelector} from '../selectors/matchingRegions';
+import {visibleRegionsSelector} from '../selectors/visibleRegions';
 import {IRegionActionCreator} from '../actions/regionActionCreators';
 
 export default function regionLoader() {
@@ -23,8 +24,9 @@ class RegionListerController {
       $ngRedux.connect(state => ({
           regionMap: state.regions.regionMap,
           regionUIMap: state.regionsVisualProperties.map,
-          matchingRegionIds: matchingRegionsSelector(state)
-      }))(this.onSelectedStateChanged.bind(this));
+          matchingRegionIds: matchingRegionsSelector(state),
+          visibleRegionIds: visibleRegionsSelector(state)
+      }))(this);
   }
 
   getRegion = id => this.regionMap[id];
@@ -45,26 +47,4 @@ class RegionListerController {
       ? this.anyCollapsedParent(region.parentId)
       : true;
   }
-
-  onSelectedStateChanged(selectedState) {
-    this.regionMap = selectedState.regionMap;
-    this.regionUIMap = selectedState.regionUIMap;
-    //we don't want to just show the matching regions, we want to show their full hierarchy
-    this.visibleRegionIds.length = 0;
-    _.forEach(selectedState.matchingRegionIds, id => this.addHierarchy(id, this.visibleRegionIds))
-  }
-
-
-  addHierarchy(regionId, idList) {
-    //add parent first
-    let region = this.regionMap[regionId];
-    if (region.parentId) {
-      this.addHierarchy(region.parentId, idList);
-    }
-
-    if (!_.any(idList, id => id === regionId)) {
-      idList.push(regionId);
-    }
-  }
-
 }

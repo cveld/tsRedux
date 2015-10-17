@@ -3,6 +3,8 @@
     "outDir": "./dist",
     "target": "ES5",
     "module": "commonjs",
-    "experimentalDecorators": true
-  }
+    "experimentalDecorators": true,
+    "sourceMap": true    
+  }, 
+  "exclude" : ["node_modules" ]
 }

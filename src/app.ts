@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import * as reducers from './reducers/reducers';
 import regionActionsService from './actions/regionActionCreators';
 import permissionActionsService from './actions/permissionActionCreators';
@@ -6,12 +7,12 @@ import loggingMiddleware from './redux/loggingMiddleware';
 import regionLister from './components/regionLister';
 import loader from './components/loader';
 import regionFilter from './components/regionFilter';
-import redux = require('redux');
-require('ng-redux');
+import { combineReducers } from 'redux';
+import * as ngRedux from 'ng-redux';
 
-angular.module('app', ['ngRedux'])
+angular.module('app', [ngRedux])
   .config(($ngReduxProvider) => {
-    let reducer = redux.combineReducers(reducers);
+    let reducer = combineReducers(reducers);
     $ngReduxProvider.createStoreWith(reducer, ['promiseMiddleware', loggingMiddleware]);
   })
    .factory('regionActions', regionActionsService)

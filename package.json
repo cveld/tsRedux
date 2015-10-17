@@ -9,14 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.4.3",
-    "awesome-typescript-loader": "^0.7.1",
+    "angular": "^1.4.7",
     "jquery": "^2.1.4",
     "json-loader": "^0.5.2",
     "lodash": "^3.10.0",
     "ng-redux": "^3.0.2",
     "redux": "^3.0.0",
-    "reflect-metadata": "^0.1.0",
+    "reflect-metadata": "^0.1.2",
     "reselect": "^2.0.0",
     "typescript": "^1.6.0",
     "webpack": "^1.10.2"
@@ -24,6 +23,6 @@
   "devDependencies": {
     "html-loader": "^0.3.0",
     "html-webpack-plugin": "^1.6.0",
-    "simple-typescript-loader": "^1.0.1"
+    "ts-loader": "^0.5.6"
   }
 }

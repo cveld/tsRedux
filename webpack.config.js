@@ -30,7 +30,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'simple-typescript' },
+      { test: /\.ts$/, loader: 'ts-loader' },
       { test: /\.html$/, loader: 'html' },
       { test: /rules.json/, loader: 'raw' },
       { test: /\.json$/, loader: 'json' }

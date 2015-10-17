@@ -1,4 +1,4 @@
-import reselect = require('reselect');
+import * as reselect from 'reselect';
 import {Region, RegionMap} from '../reducers/region';
 
 /*

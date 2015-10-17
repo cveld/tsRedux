@@ -2,3 +2,6 @@ node_modules/
 build/
 .settings/
 npm-debug.log
+src/**/*.js*
+.ntvs_analysis.dat
+obj/debug/*

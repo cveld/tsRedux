@@ -17,7 +17,7 @@ class PermissionReducer extends BaseReducer {
   }
 
   extractAuthorizedRegionsIds(rawData): string[] {
-   return _.map(rawData.permissions, (p) => {
+   return _.map(rawData.permissions, (p:string) => {
       return p.split('/')[0];
     });
   }

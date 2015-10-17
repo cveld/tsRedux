@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes'
 import {createAction, createAsyncAction} from '../redux/action';
-import redux = require('redux');
+import * as redux from 'redux';
 
 export interface IRegionActionCreator {
   loadRegionsAsync();
